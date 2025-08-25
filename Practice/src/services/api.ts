@@ -18,3 +18,29 @@ export async function addItem(payload) {
   }
   return res.json();
 }
+
+export async function updateItem(name: string, newData: { description: string; price: string | number }) {
+  const res = await fetch(`${API}/items`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, new_data: newData }),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.error || "Update failed");
+  }
+  return res.json();
+}
+
+export async function deleteItem(name: string) {
+  const res = await fetch(`${API}/items`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name }),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.error || "Delete failed");
+  }
+  return res.json();
+}

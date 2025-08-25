@@ -17,7 +17,7 @@ export default function App() {
       <h2>Item Manager</h2>
       <ItemForm setItems={setItems} />
       <h3 style={{ marginTop: 24 }}>Items</h3>
-      <ItemList items={items} />
+  <ItemList items={items} setItems={setItems} />
     </div>
   );
 }
