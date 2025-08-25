@@ -3,12 +3,12 @@ import { addItem, fetchItems } from "../services/api";
 
 export default function ItemForm({ setItems }) {
   const [form, setForm] = useState({ name: "", description: "", price: "" });
-  const [status, setStatus] = useState(null);
+  const [status, setStatus] = useState<string | null>(null);
 
-  const onChange = (e) =>
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
 
-  const onSubmit = async (e) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("Saving...");
     try {
@@ -18,16 +18,13 @@ export default function ItemForm({ setItems }) {
       setForm({ name: "", description: "", price: "" });
       setStatus("Saved ✓");
       setTimeout(() => setStatus(null), 1000);
-    } catch (err) {
+    } catch (err: any) {
       setStatus(err.message || "Error");
     }
   };
 
   return (
-    <form
-      onSubmit={onSubmit}
-      style={{ display: "grid", gap: 8, maxWidth: 420 }}
-    >
+    <form onSubmit={onSubmit}>
       <input
         name="name"
         placeholder="Item name"
@@ -53,7 +50,7 @@ export default function ItemForm({ setItems }) {
         min="0"
       />
       <button type="submit">Save Item</button>
-      {status && <small>{status}</small>}
+      {status && <small style={{ marginLeft: 8 }}>{status}</small>}
     </form>
   );
 }

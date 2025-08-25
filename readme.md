@@ -4,7 +4,7 @@
 
 1. **Navigate to Backend folder:**
    ```bash
-   cd "c:/Web Development/Python Development/Backend"
+   cd "Backend"
    ```
 2. **Create and activate a virtual environment:**
    ```bash
@@ -29,7 +29,7 @@
 
 1. **Navigate to Practice folder:**
    ```bash
-   cd "c:/Web Development/Python Development/Practice"
+   cd "Practice"
    ```
 2. **Install dependencies:**
    ```bash
@@ -44,6 +44,7 @@
 ---
 
 ## Notes
+
 - Make sure MongoDB is running locally or update the backend config for remote DB.
 - The frontend expects the backend to be running at `http://127.0.0.1:5000`.
 - For API endpoints, see the backend code in `Backend/routes/items.py`.

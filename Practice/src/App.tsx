@@ -13,11 +13,11 @@ export default function App() {
   }, []);
 
   return (
-    <div style={{ padding: 24, fontFamily: "system-ui, sans-serif" }}>
+    <div className="app-container">
       <h2>Item Manager</h2>
       <ItemForm setItems={setItems} />
-      <h3 style={{ marginTop: 24 }}>Items</h3>
-  <ItemList items={items} setItems={setItems} />
+      <h3>Items</h3>
+      <ItemList items={items} setItems={setItems} />
     </div>
   );
 }
